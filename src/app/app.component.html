@@ -1,0 +1,19 @@
+<button (click)="showDialog = !showDialog; selectTab('Johnny Applessed','myRequisitions')" class="btn">Open</button>
+
+<app-dialog [(visible)]="showDialog">
+  <div class="container main-content">
+
+    <button class="btn btn-primary next-btn" [disabled]="nextBtn" (click)="selectTab('','allRequisitions')">Next</button>
+    <h1>Add Sarah Gutierrez to Requisition</h1>
+
+    <div class="tabs_btns">
+      <button type="button" class="btn" (click)="selectTab('Johnny Applessed','myRequisitions')" [ngClass]="{'activeTab': tab == 'Johnny Applessed' }">
+        My Requisitions</button>
+      <button type="button" class="btn all" (click)="selectTab('','allRequisitions')" [ngClass]="{'activeTab': tab == 'allRequisitions' }">All Requisitions</button>
+    </div>
+   
+    <app-custom-table-component [customTableOptions]="customTableOptions"></app-custom-table-component>
+
+  </div>
+  <button (click)="showDialog = !showDialog" class="btn" style="display:none;">Close</button>
+</app-dialog>
